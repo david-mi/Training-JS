@@ -17,9 +17,33 @@ body{
 }
 
 h1{
-    margin-bottom: 20%;
     padding: 10px;
     outline: 2px black solid;
+    position: absolute;
+    top: 200px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@keyframes title_anim{
+
+    50% {
+        transform: translateX(320px);
+    }
+}
+
+h1::before{ 
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -20px;
+    bottom: 0px;
+    width: 20px;
+    background-color: orange;
+    z-index: -88;
+    transform-origin: left;
+    animation: title_anim 4s ease-in-out infinite; 
+
 }
 
 ul{
