@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --main-clr: #2D7DD2;
+    --second-clr: #F6D570;
+    --thrid-clr: #F36D68;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--main-clr);
+}
+
+.main-container {
+    background-color: var(--second-clr);
+    width: 600px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 40px;
+    gap: 50px;
+    
+}
+
+.main-title {
+    font-size: 3rem;
+    text-align: center;
+    background-color: var(--main-clr);
+    width: 30%;
+    padding: 20px;
+    border-radius: 50px;
+    color: #F6D570;
+    position: relative;
+}
+
+.main-title::before{
+    content: "\f5ca";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    left: -100px;
+    color: #3D0814;
+}
+
+.main-title::after{
+    content: "\f578";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    right: -100px;
+    color: #3D0814;
+}
+
+.main-container p, .main-container div{
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 50%;
+    flex: 0 1 30%;
+    font-size: 1.1rem;
+    background-color: #79e054;
+    color: #0C0C0C;
+    font-size: 1.2rem;
+    font-weight: 300;
+   
+}
+
+
+.main-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    font-size: 1.5rem;
+    margin-left: -50px;
+    
+    
+}
+
+.main-container li {
+    padding: 1rem;
+    margin-block: 0.5rem;
+    font-weight: 500;
+    width: 100%;
+    background-color: var(--main-clr);
+    text-align: center;
+   
+}
+
+li:hover{
+    cursor: default;
+}
+
+div {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+button {
+    box-sizing: content-box;
+    width: 10%;
+    aspect-ratio: 1/1;
+    padding: 20px;
+    border-radius: 50%;
+    border: 0px;
+    font-weight: 600;
+    background-color: #F36D68;
+    color: white;
+    transition: all 200ms ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after{
+    content:"";
+    background-color: #3D0814;
+    position: absolute;
+    inset: 0px;
+    transform: translateY(100%);
+    
+    
+}
+
+
+@keyframes waves {
+    from {
+        transform: translateY(100%);
+   
+    }
+
+    to {
+        transform: translateY(0%);
+       
+    }
+}
+
+button h2 {
+    font-size: 2rem;
+    transition: all 200ms ease-in-out;
+    position: relative;
+    z-index: 10;
+}
+
+
+button h2::before{
+    content:"";
+    background-color:white;
+    width: 80px;
+    height: 4px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: all 500ms cubic-bezier(.83,.1,.04,1.67);
+  
+}
+
+
+
+button:active, button:focus {
+    box-shadow: 0px 0px 0px 10px var(--second-clr),
+                0px 0px 40px white;
+                
+}
+
+button:active h2, button:focus h2{
+    font-size: 2.2rem;
+   
+}
+
+button:focus::after{
+    animation: waves ease-in 300ms forwards;
+}
+
+button:focus h2::before {
+    transform: translateX(-50%) scale(1);
+    
+}
+
+.fond-rouge{
+    background-color: red;
+}
+
+.checklist{
+    position: relative;
+}
+
+.checklist::after {
+    content:"\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    background-color:#F36D68;
+    box-shadow: 0px 0px 2px  black;
+    padding: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: -70px;
+    aspect-ratio: 1/1;
+}
+
+.margin-left {
+    margin-left: -80px;
+}
+
+.sommaire {
+    
+    color: black;
+    padding: 3px 5px;
+    border: 2px black solid;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    border-radius: 20px;
+    transform: translateX(-50%)
+}
