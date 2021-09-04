@@ -2,21 +2,29 @@
     margin: 0px;
     padding: 0px;
 }
+
+:root{
+    --main-clr: #2D7DD2;
+    --second-clr: #F6D570;
+    --thrid-clr: #F36D68;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
 body{
     
     font-family: 'Josefin Sans', sans-serif;
     height: 100vh;
+    background-color: var(--second-clr);
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas:
     "t"
-    "."
+    "t"
     "l"
     "p"
-    ".";
+    "p";
 
 }
 
@@ -38,7 +46,9 @@ h1{
     font-size: 3rem;
     text-transform: uppercase;
     padding: 10px 30px;
-    background-color: palegreen;
+    background-color: var(--main-clr);
+    color: white;
+    box-shadow: 0px 0px 10px rgb(54, 54, 54);
 }
 
 .liseuse-container{
@@ -50,25 +60,32 @@ h1{
     justify-content: space-evenly;
     align-items: center;
     min-height: 500px;
+    background-color: var(--main-clr);
     
 }
 
 .play-pause{
     grid-area: p;
     display: flex;
+    background-color: var(--thrid-clr);
+    height: 50%;
+    width: 300px;
     justify-content: space-evenly;
-    justify-self: stretch;
-    
+    align-items: center;
+    box-shadow: 0px 0px 10px rgb(54, 54, 54);
+    margin-bottom: 40px;
 }
 
 
-img{
-    width: 400px;
-}
+
 
 .button{
+    display: grid;
+    place-items: center;
     height: 50px;
     transition: 200ms ease-in-out;
+
+   
 }
 
 @keyframes scale {
@@ -81,6 +98,10 @@ img{
 
 .button:focus{
     animation: scale 500ms ease-in-out;
+}
+
+.button:hover{
+    cursor: pointer;
 }
 
 
@@ -100,4 +121,41 @@ img{
     left: 50%;
     border-radius: 20px;
     transform: translateX(-50%)
+}
+
+img{
+    max-width: 400px;
+    transform: scale(0.8) translateX(-100%);
+    animation: photo-scale 500ms cubic-bezier(.08,1.09,.69,1.11) forwards;
+    opacity: 0;
+    filter: blur(0.4rem);
+    display: block;
+    box-shadow: 0px 0px 4px grey;
+    
+}
+
+.photos-container {
+    height: 350px;
+    width: 550px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-color: rgb(204, 204, 204);
+    
+}
+
+/* ANIMATIONS PHOTOS */
+
+
+@keyframes photo-scale{
+    
+    50%,100%{
+        opacity: 1;
+    }
+    100% 
+    
+    {
+        filter: blur(0px);
+        transform: scale(1) translateX(0%);
+    }
 }

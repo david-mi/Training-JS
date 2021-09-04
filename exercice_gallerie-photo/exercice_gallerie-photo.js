@@ -5,20 +5,13 @@ let buttonLeft = document.querySelector('.left-arrow');
 let buttonPlay = document.querySelector('.play');
 let buttonPause = document.querySelector('.pause');
 
-// for(let i = 0; i<images.length; i++ ){
-    
-    
-// })
-// }
-
 var i = 0;
 
 
-console.log(images[0])
+/// PASSE SUR LA PHOTO SUIVANTE
 
-
-buttonRight.addEventListener('click', function(){
-    if (i < (images.length -1)){
+nextPicture = () =>{
+  if (i < (images.length -1)){
         i++;  
     }else{
        i = 0
@@ -31,16 +24,16 @@ buttonRight.addEventListener('click', function(){
         images[i].classList.remove('display')
     } 
 }
-})
+}
+    
+/// REVIENT SUR LA PHOTO PRECEDENTE
 
-buttonLeft.addEventListener('click', function(){
+previousPicture = () =>{
     if (i <= (images.length -1) && i > 0){
         i--;  
     }else{
        i = (images.length -1)
    }
-
-   console.log(i)
 
    for (let j=0; j < images.length; j++){
     if (j !== i){
@@ -49,15 +42,29 @@ buttonLeft.addEventListener('click', function(){
         images[i].classList.remove('display')
     } 
 }
+}
+
+/// BIND DES FONCTIONS RIGTH & LEFT SUR UN BOUTON
+
+buttonRight.addEventListener('click', function(){
+    nextPicture();
 })
 
-// buttonLeft.addEventListener('click', function(){
-//     i--;
-//     // images[i].classList.remove('display')
-//     if (i < 0){
-//          i = images.length - 1;
-//     }
-//     console.log(i)
-//  })
+buttonLeft.addEventListener('click', function(){
+    previousPicture();
+})
 
- 
+// / BOUTON PLAY ET PAUSE AVEC INTERVALS
+
+buttonPlay.addEventListener('click', function(e){
+    if (e.detail > 1){
+        console.log('mdr')
+    }
+    var interval = setInterval(nextPicture, 1500)
+    buttonPause.addEventListener('click', function(){
+        window.clearInterval(interval)
+    })
+    
+})
+
+
