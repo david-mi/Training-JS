@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --main-clr: #FFFD82;
+    --second-clr: #7D8CA3;
+    --third-clr: #23395B;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    
+    background-color: var(--third-clr);
+}
+.main-container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+fieldset{
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 40px;
+    border: 0px;
+}
+
+h1{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    background-color: var(--main-clr);
+    padding: 10px 20px;
+    box-shadow: 0 0 0 15px var(--third-clr),
+    0 0 0 18px var(--main-clr);
+    color: black;
+   
+             
+}
+#form{
+    
+    display: flex;
+    align-items: center;
+}
+
+label{
+    display: inline-block;
+    width: 180px;
+    font-size: 1.2rem;
+    position: relative;
+    padding-right: 10px;
+}
+
+label::after{
+    position: absolute;
+    content:':';
+    right: 10px;
+}
+
+input{
+    height: 20px;
+}
+
+input:invalid{
+    background-color: red;
+}
+
+.small-wrong{
+    color: red;
+}
+
+.small-wright{
+    color: green;
+}
+
+.btn__container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn{
+    text-align: center;
+    padding: 5px 10px;
+    background-color: var(--main-clr);
+    font-weight: bold;
+    
+}
+
+p{
+    
+    background-color: rgb(63, 63, 63);
+    color: white;
+    width: 50%;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+ul{
+    columns: 3;
+    margin-top: 20px;
+    
+}
+
+li {
+    background-color: white;
+    list-style-position: inside;
+    padding: 10px;
+}

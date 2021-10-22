@@ -1,0 +1,91 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root{
+    --main-clr: #F4D35E;
+    --second-clr: #403233;
+    --third-clr: #51bd5b;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--third-clr);
+}
+
+fieldset{
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    box-shadow: 0 0 0 15px var(--third-clr),
+    0 0 0 18px var(--main-clr);
+}
+
+h1{
+    margin-bottom: 100px;
+    background-color: var(--main-clr);
+    padding: 10px 20px;
+    box-shadow: 0 0 0 15px var(--third-clr),
+    0 0 0 18px var(--main-clr);
+    color: black;
+   
+             
+}
+
+.form{
+    padding-bottom: 10px;
+}
+
+label{
+    display: inline-block;
+    width: 180px;
+    font-size: 1.2rem;
+    position: relative;
+    padding-right: 10px;
+}
+
+label::after{
+    position: absolute;
+    content:':';
+    right: 10px;
+}
+
+input{
+    height: 20px;
+}
+
+input:invalid{
+    background-color: red;
+}
+
+.small-wrong{
+    color: red;
+}
+
+.small-wright{
+    color: green;
+}
+
+.btn__container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn{
+    text-align: center;
+    padding: 5px 10px;
+    background-color: var(--main-clr);
+    font-weight: bold;
+    
+}

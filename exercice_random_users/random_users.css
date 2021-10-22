@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Inconsolata', monospace;
+    height: 100vh;
+    background-color: #022B3A;
+    
+}
+
+.main__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    margin: auto;
+    height: 100vh;
+    padding: 50px;
+    background-color: #1F7A8C;
+}
+
+.photo__container{
+   
+    flex: 0 0 128px;
+    width: 128px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px black;
+    animation : photo 400ms linear both;
+    
+}
+
+
+@keyframes photo {
+
+    50% {
+     box-shadow: 0px 0px 30px #F49E4C;   
+    }
+
+    100%{
+        box-shadow: 0px 0px 0px 3px #F49E4C;  
+    }
+}
+
+@keyframes male {
+
+    0% {
+     background-color: #022B3A;   
+    }
+
+    100%{
+        background-color:  #1F7A8C;  
+    }
+}
+
+@keyframes female {
+
+    0% {
+     background-color: #022B3A;   
+    }
+
+    100%{
+        background-color:  #AB3428;  
+    }
+}
+
+.name{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 5px black;;
+    background-color: #F49E4C;
+    padding: 10px 20px;
+}
+
+.male{
+    animation : male 400ms linear forwards;
+    box-shadow: 0px 0px 0px blue;
+}
+
+.female{
+    animation : female 400ms linear forwards;
+    box-shadow: 0px 0px 0px red;
+}
+
+.photo{
+    display: block;
+    width: 100%;
+   
+}
+
+ul{
+
+    margin-top: 50px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px black;;
+    background-color: #F49E4C;
+    width: 80%;
+    
+    
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    list-style-type: none;
+    padding-block: 10px;
+}
+
+span:nth-child(2){
+    text-align: right;
+}
+
+
+
+

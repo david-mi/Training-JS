@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0px;
+}
+
+
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.full-container{
+    max-width: 1000px;
+    flex: 1 1 100%;
+    background-color: #523F38;
+    padding-block: 0px 20px;
+    height: 100vh;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "main-title saved-title"
+    "main saved"
+    "random random";
+}
+
+.main-title, .saved-title{
+    font-size: 1.5rem;
+    text-align: center;
+    color: #F4F4F9;
+    padding: 20px;
+    position: relative;
+}
+
+.main-title::before{
+    content: '';
+    position: absolute;
+    right: -2px;
+    width: 4px;
+    background-color: rgb(255, 255, 255);
+    top: 0px;
+    bottom: 0px;
+
+}
+
+.main-container{
+    grid-area: main;
+    padding: 0px 5px 0px 10px;
+    background-color: #A4BAB7;
+}
+
+.saved-beers{
+    grid-area: saved;
+    overflow-y: scroll;
+    padding: 0px 10px 0px 10px;
+    background-color: #A4BAB7;
+    
+}
+
+.random{
+    grid-area: random;
+    margin-top: 20px;
+    width: 50%;
+    justify-self: center;
+    display: none;
+}
+
+.beer-container, .fav-beer-container{
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px black;
+    transition: border-radius 200ms ease-in-out, background-color 400ms linear;
+    position: relative;
+    
+    
+}
+
+.del-btn{
+    width: 30px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3px;
+    background-color: #FF851B;
+}
+
+.del-btn::before{
+    content: '\f007';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f2ed";
+    font-size: 1.3rem;
+}
+
+.beer-container:hover, .fav-beer-container:hover{
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+
+.beer-container:hover li, .fav-beer-container:hover li{
+    color: #EEF5DB;
+}
+
+.beer-container li, .fav-beer-container li{
+    transition: all 300ms ease-in-out;
+    
+}
+
+.beer-container{
+    background-color: #FF851B ;
+
+}
+
+.fav-beer-container{
+    background-color: #EEF5DB;
+}
+
+.display{
+    display: none;
+}
