@@ -45,9 +45,12 @@ const addBeer = () => {
     const noDuplicates = i => JSON.stringify(favoriteBeersTab).includes(JSON.stringify(tabData[i]))
     BeersContainer = document.querySelectorAll('.beer-container')
     BeersContainer.forEach((Beerdiv, index) => {
+        console.log(Beerdiv)
        Beerdiv.addEventListener('click', () =>{
         if (noDuplicates(index)){
             console.log('déjà présent')
+            console.log(Beerdiv[index])
+            Beerdiv[index].classList.add('alert')
         }else{
         favoriteBeersTab.push(tabData[index])
         localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
@@ -57,7 +60,7 @@ const addBeer = () => {
                 <li class="beer-brand">Fabriquant : ${getLi(index, 'brand')}</li>
                 <li class="percent">Taux d'alcool : ${getLi(index, 'alcohol')}</li>
                 <li class="malt">Malt : ${getLi(index, 'malts')}</li>
-                <button class="del-btn"></button> 
+                <button type"button" class="del-btn"></button> 
             </ul>`
         }
         })
@@ -110,6 +113,10 @@ fetchAndPush()
        Beerdiv.addEventListener('click', () =>{
         if (noDuplicates(index)){
             console.log('déjà présent')
+            Beerdiv.classList.add('alert');
+            setTimeout(() =>{
+                Beerdiv.classList.remove('alert');
+            }, 1200)
         }else{
         favoriteBeersTab.push(tabData[index])
         localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
@@ -119,7 +126,7 @@ fetchAndPush()
                 <li class="beer-brand">Fabriquant : ${getLi(index, 'brand')}</li>
                 <li class="percent">Taux d'alcool : ${getLi(index, 'alcohol')}</li>
                 <li class="malt">Malt : ${getLi(index, 'malts')}</li>
-                <button class="del-btn"></button> 
+                <button type"button" class="del-btn"></button> 
             </ul>`
         console.log(document.querySelectorAll('.del-btn'))
         }
@@ -141,9 +148,13 @@ fetchAndPush()
         for (let j = 0; j < favoriteBeersTab.length; j++){
             if(favBeersContainer[index].id == favoriteBeersTab[j].id){
                 console.log('match !')
-                favBeersContainer[index].remove()
-                favoriteBeersTab.splice(j, 1)
-                localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
+                favBeersContainer[index].classList.add('del');
+                setTimeout(() =>{
+                    favBeersContainer[index].remove()
+                    favoriteBeersTab.splice(j, 1)
+                    localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
+                }, 1000)
+                
             }
         }
 

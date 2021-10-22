@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oxygen:wght@300;400;700&display=swap');
+
 
 *{
     box-sizing: border-box;
@@ -14,8 +15,10 @@ ul{
 
 
 body{
+    font-family: 'Oxygen', sans-serif;
     display: flex;
     justify-content: center;
+    background-color: rgb(78, 78, 78);
 }
 
 .full-container{
@@ -82,8 +85,10 @@ body{
     box-shadow: 0px 0px 5px black;
     transition: border-radius 200ms ease-in-out, background-color 400ms linear;
     position: relative;
-    
-    
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .del-btn{
@@ -94,6 +99,17 @@ body{
     transform: translateY(-50%);
     right: 3px;
     background-color: #FF851B;
+    transition: transform 100ms ease-in-out, 
+                border-radius 300ms ease-in-out;
+    border: 0px;
+}
+.del-btn:active{
+    transform: scale(0.8) translateY(-50%);
+    background-color: red;
+}
+
+.del-btn:focus{
+    background-color: red;
 }
 
 .del-btn::before{
@@ -107,11 +123,76 @@ body{
 .beer-container:hover, .fav-beer-container:hover{
     cursor: pointer;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.493);
+    background-color: rgba(0, 0, 0, 0.767);
+}
+
+.fav-beer-container:hover .del-btn{
+    border-radius: 10px;
+}
+
+/* .alert{
+    animation: blur 1.2s ease-in-out;
+} */
+
+.alert::before{
+    content:'';
+    position: absolute;
+    inset: 0px;
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    animation: opacity 1.2s ease-in-out;
+}
+
+.alert::after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content:'Element déjà ajouté';
+    position: absolute;
+    background-color: #FF851B;
+    height: 50px;
+    bottom: -50px;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    animation: warn 1000ms 0.2s forwards;
+}
+
+@keyframes blur {
+    40%, 80%{
+        filter: blur(5px);
+    }
+}
+
+@keyframes opacity {
+    40%, 80%{
+        opacity: 0.7;
+    }
+}
+
+@keyframes warn {
+    30%, 70%{
+    transform: translate(-50%, 50%);
+    bottom: 50%;
+    }
+}
+
+@keyframes del {
+    100%{
+      height: 0px;
+      padding: 0px;
+      margin-top: 0px;
+    }
+}
+
+.del{
+    animation: del 200ms forwards linear;
+    overflow: hidden;
+    transform-origin: top;
 }
 
 .beer-container:hover li, .fav-beer-container:hover li{
-    color: #EEF5DB;
+    color: #ffffff;
 }
 
 .beer-container li, .fav-beer-container li{
@@ -121,7 +202,8 @@ body{
 
 .beer-container{
     background-color: #FF851B ;
-
+    overflow: hidden;
+    
 }
 
 .fav-beer-container{
