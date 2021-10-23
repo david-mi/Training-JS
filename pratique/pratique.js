@@ -135,12 +135,7 @@ fetchAndPush()
     })
         
     const favBeersContainer = document.querySelectorAll('.fav-beer-container')
-    favBeersContainer.forEach(i => {
-        i.addEventListener('click', () =>{
-            console.log('gg')
-        })
-    })
-    // const delBtn = document.querySelectorAll('.del-btn');
+    const delBtn = document.querySelectorAll('.del-btn');
     document.querySelectorAll('.del-btn').forEach((elem, index) => {
         console.log(elem)
         elem.addEventListener('click', () => {
@@ -149,10 +144,10 @@ fetchAndPush()
             if(favBeersContainer[index].id == favoriteBeersTab[j].id){
                 console.log('match !')
                 favBeersContainer[index].classList.add('del');
+                favoriteBeersTab.splice(j, 1)
+                localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
                 setTimeout(() =>{
                     favBeersContainer[index].remove()
-                    favoriteBeersTab.splice(j, 1)
-                    localStorage.setItem('favoriteBeers', JSON.stringify(favoriteBeersTab))
                 }, 1000)
                 
             }
